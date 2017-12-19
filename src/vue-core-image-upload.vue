@@ -1,5 +1,5 @@
 <template>
-  <div class="g-core-image-upload-btn" v-ref:container>
+  <div class="g-core-image-upload-btn" v-el:container>
     <slot>{{text}}</slot>
     <form class="g-core-image-upload-form" v-show="!hasImage" method="post" enctype="multipart/form-data" action="" style="">
       <input v-bind:disabled="uploading" v-bind:id="'g-core-upload-input-' + formID" v-bind:name="name" v-bind:multiple="multiple" type="file" v-bind:accept="inputAccept" v-on:change="change" v-on:dragover="dragover" v-on:dragenter="dragover" v-on:dragleave="dragleave" v-on:dragend="dragleave" v-on:drop="dragleave" style="width: 100%; height: 100%;">
@@ -76,11 +76,11 @@
         return dq.querySelector(str);
       },
       dragover() {
-        let element = this.$refs.container;
+        let element = this.$els.container;
         element.classList.add('is-dragover');
       },
       dragleave() {
-        let element = this.$refs.container;
+        let element = this.$els.container;
         element.classList.remove('is-dragover');
       },
       change(e) {

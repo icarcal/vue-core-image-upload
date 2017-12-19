@@ -3,7 +3,7 @@
   <div class="g-crop-image-box" >
     <div class="g-crop-image-principal" v-on:touchstart="drag" v-on:mousedown="drag">
       <div class="image-wrap"  :style="{ width: width + 'px',height: height + 'px', left: left+ 'px', top: top + 'px', backgroundImage: 'url(' + src + ')', cursor: isResize ? 'default' : 'move'}">
-        <img v-ref:crop-image style="width:0;height:0;" :src="src" />
+        <img v-el:crop-image style="width:0;height:0;" :src="src" />
       </div>
       <div class="image-mask" v-if="!isResize">
         <div class="mask top" :style="{ top:0, height: cropCSS.top + 'px', left: 0, width: '100%'}"></div>
@@ -344,7 +344,7 @@ export default {
     },
 
     getCropImage() {
-      return this.$refs['crop-image'];
+      return this.$els.cropImage;
     },
 
     __find(str) {
