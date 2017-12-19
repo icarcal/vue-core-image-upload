@@ -128,6 +128,7 @@
       __showImage() {
         this.hasImage = true;
         this.__readFiles();
+        this.__dispatch('imageshown', this.files);
       },
 
       __readFiles() {
