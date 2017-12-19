@@ -3,7 +3,7 @@
   <div class="g-crop-image-box" >
     <div class="g-crop-image-principal" v-on:touchstart="drag" v-on:mousedown="drag">
       <div class="image-wrap"  :style="{ width: width + 'px',height: height + 'px', left: left+ 'px', top: top + 'px', backgroundImage: 'url(' + src + ')', cursor: isResize ? 'default' : 'move'}">
-        <img ref="crop-image" style="width:0;height:0;" :src="src" />
+        <img v-ref:crop-image style="width:0;height:0;" :src="src" />
       </div>
       <div class="image-mask" v-if="!isResize">
         <div class="mask top" :style="{ top:0, height: cropCSS.top + 'px', left: 0, width: '100%'}"></div>
@@ -17,7 +17,7 @@
         <a class="g-resize" v-on:touchstart.self="resize" v-on:mousedown.self="resize"></a>
       </div>
     </div>
-    <resize-bar v-if="resize" ref="resizeBar" @resize="resizeImage"></resize-bar>
+    <resize-bar v-if="resize" v-ref:resize-bar @resize="resizeImage"></resize-bar>
     <rotate-bar v-if="isRotate" @rotate="rotateImage"></rotate-bar>
   </div>
 </div>
